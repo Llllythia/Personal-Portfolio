@@ -45,6 +45,6 @@ npm test
 
 `npm run build` 生成静态网站 `dist/`，可部署至 GitHub Pages、Netlify 等静态托管。资源使用相对路径，支持仓库子目录。导出的单文件 HTML 也可单独托管。
 
-用户已授权部署。`npm run release` 生成 `dist/`、离线 HTML 和 ZIP 下载包。`.github/workflows/deploy.yml` 在 main 更新时构建、检查并通过官方 GitHub Pages Actions 发布。GitHub Pages 应设置为 GitHub Actions。首次部署同时保留 gh-pages 成品分支，提供源码之外的网页及离线包下载。云环境的配置草稿保存与发布，也不同于网站上线。
+用户已授权部署。`npm run release` 生成 `dist/`、离线 HTML 和 ZIP 下载包。`.github/workflows/deploy.yml` 在 main 更新时构建、检查并更新 gh-pages 成品分支，再请求 GitHub Pages 构建。该流程匹配当前设置：Deploy from a branch → gh-pages → / (root)，并保留成品 HTML 与 ZIP 下载。云环境的配置草稿保存与发布，也不同于网站上线。
 
 云任务本身已隔离；后续直接使用现有 checkout，无须新建 Git worktree。
