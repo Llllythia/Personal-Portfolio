@@ -8,7 +8,30 @@ export const skills = [
 ];
 export const projects = [
   {
-    id: 'coking', no: '01', title: bi('让工业遗存，重新连接日常', 'Giving industrial heritage a new everyday life'),
+    id: 'transit', no: '01', title: bi('让换乘，成为可停留的城市体验', 'Making transit a place to pause, connect and stay'),
+    original: bi('The Intersection · 东涌综合交通枢纽', 'The Intersection · Tung Chung integrated transit hub'),
+    type: bi('综合策划 · 交通与体验设计', 'Integrated strategy · Transit experience'), location: bi('中国 · 香港东涌', 'Tung Chung, Hong Kong'),
+    role: bi('小组课程项目 · Studio 2', 'Team academic project · Studio 2'),
+    cover: 'studio2', pages: ['studio2-01','studio2-02','studio2-03','studio2-04','studio2-05','studio2-06'],
+    sourcePdf: 'Studio2-The-Intersection.pdf', sourcePage: 1,
+    skills: ['insight','people','strategy','communication'],
+    background: bi('东涌的轨道、巴士与缆车站点相邻，但步行联系、换乘体验与周边空间仍存在断点。团队结合区域交通与产业背景，探索如何将交通枢纽与办公、住宿、商业及公共活动整合，让场地同时服务短时换乘与长期生活。', 'Rail, bus and cable-car stations sit close together in Tung Chung, yet pedestrian links, transfers and surrounding spaces remain fragmented. Drawing on the regional transport and industry context, the team explores a hub that integrates mobility, work, accommodation, retail and public life for both brief transfers and longer stays.'),
+    question: bi('当人们停留一小时、几天或更久，同一个枢纽如何回应不同的需要？', 'How can one hub respond to people staying for an hour, a few days or much longer?'),
+    steps: [
+      [bi('理解人群与任务', 'Understand people & tasks'), bi('按停留时长区分居民、商务访客与换乘旅客，将生活、工作、社交和通行需求转译为不同的功能组合。', 'Segment residents, business visitors and transit passengers by length of stay, translating living, working, social and mobility needs into different programme combinations.')],
+      [bi('诊断体验断点', 'Diagnose experience gaps'), bi('沿港铁、巴士与缆车之间的具体路线，梳理遮阴不足、绕行、层间转换和人车冲突，定位影响连续体验的关键节点。', 'Trace routes between MTR, bus and cable-car services to identify exposure, detours, level changes and pedestrian–vehicle conflicts that interrupt the journey.')],
+      [bi('组织方案并对照', 'Integrate & compare'), bi('通过交通整合、立体步行连接、复合开发与公共空间设计组织方案，再以流线及 JLOS 图对照设计前后的路径和活动。', 'Combine transport consolidation, multi-level walking links, mixed-use development and public space, then compare proposed routes and activities with the existing condition through circulation and JLOS diagrams.')]
+    ],
+    highlights: [
+      { image: 'studio2-users.jpg', title: bi('同一场地，不同的停留需求', 'One place, different lengths of stay'), text: bi('用户分层不是简单罗列年龄职业，而是将停留时长与任务联系起来：换乘补给、短期商务、长期生活，分别需要什么？', 'The segmentation connects time with tasks: what do transit and refreshment, short business stays and everyday life each require?'), source: bi('Studio 2 · 第 2 页 · 人群与需求分析', 'Studio 2 · p. 2 · Users and needs') },
+      { image: 'studio2-journeys.jpg', title: bi('顺着人的路径，找到体验问题', 'Follow the route to find the friction'), text: bi('把换乘拆成可观察的连续环节，标出暴晒、车辆干扰与楼层转换，让“体验不好”变成可以回应的具体问题。', 'Break a transfer into observable stages and identify exposure, traffic interference and level changes, turning a broad complaint into specific design questions.'), source: bi('Studio 2 · 第 1 页 · 现状路径分析', 'Studio 2 · p. 1 · Existing journeys') },
+      { image: 'studio2-comparison.jpg', title: bi('让设计回应，可以被看见', 'Make the design response visible'), text: bi('用同一路径的前后对照，说明立体连接与活动节点如何改变空间组织。图中表达的是方案预期，尚非建成后的效果测量。', 'Compare the same journey before and after the proposal to explain the role of level connections and activity nodes. These are proposed conditions, not measured post-construction results.'), source: bi('Studio 2 · 第 5 页 · JLOS 前后对照', 'Studio 2 · p. 5 · JLOS comparison') }
+    ],
+    evidence: bi('Studio 2 第 1 页：区域、现状与路径；第 2 页：人群分层与概念；第 3 页：策略与鸟瞰；第 4–5 页：流线、分层功能及 JLOS 前后对照；第 6 页：节点与生态策略。', 'Studio 2 p. 1: regional context and existing journeys; p. 2: user segmentation and concept; p. 3: strategy and aerial view; pp. 4–5: circulation, layered programmes and JLOS comparisons; p. 6: detail and ecological strategies.'),
+    outcome: bi('形成从区域定位、用户分层、体验诊断到综合布局和路径对照的设计提案，体现需求转译、系统整合与方案论证。前后对照属于设计层面的预期分析，未提供建成效果或换乘效率的实测数据；AI 相关内容为项目定位与概念，不据此声称 AI 系统开发。', 'The proposal connects regional positioning, user segmentation and journey diagnosis with an integrated layout and route comparisons. It demonstrates needs translation, systems integration and design reasoning. Comparisons describe proposed conditions rather than measured built outcomes or transfer-time improvements. AI references concern positioning and concept, not evidence of AI system development.')
+  },
+  {
+    id: 'coking', no: '02', title: bi('让工业遗存，重新连接日常', 'Giving industrial heritage a new everyday life'),
     original: bi('北京焦化厂更新', 'Revitalisation of the Beijing Coking Plant'),
     type: bi('城市更新 · 场地策划', 'Urban regeneration · Spatial strategy'), location: bi('中国 · 北京', 'Beijing, China'),
     role: bi('小组课程项目', 'Team academic project'), cover: 7, pages: [7,8,9,10,11,12], skills: ['insight','people','strategy','communication'],
@@ -23,7 +46,7 @@ export const projects = [
     outcome: bi('形成总体规划、分层策略及节点设计，体现从问题定义到方案表达的完整链条。属于设计提案，未提供建成、运营或客流验证。', 'A masterplan, layered strategies and node designs demonstrate the chain from problem definition to proposal. This is a design proposal; built outcomes, operations and footfall effects are not documented.')
   },
   {
-    id: 'hutong', no: '02', title: bi('从游客走过的路，发现文化的入口', 'Finding cultural entry points in the paths people take'),
+    id: 'hutong', no: '03', title: bi('从游客走过的路，发现文化的入口', 'Finding cultural entry points in the paths people take'),
     original: bi('南锣鼓巷：步行视角下的历史文化研究', 'Nanluoguxiang: heritage from a pedestrian perspective'),
     type: bi('实地研究 · 文化体验设计', 'Field research · Cultural experience'), location: bi('中国 · 北京东城', 'Dongcheng, Beijing'),
     role: bi('小组课程项目', 'Team academic project'), cover: 19, pages: [19,20], skills: ['insight','people','strategy','communication'],
@@ -38,7 +61,7 @@ export const projects = [
     outcome: bi('形成游客行为与资源分布的对照分析，并提出模块化体验设施。小样本支持探索性洞察，不代表全部游客；未提供实施后体验测试。', 'A comparison of visitor behaviour and resource distribution informs modular experience facilities. The small sample supports exploratory insight, rather than claims about all visitors. Post-implementation testing is not documented.')
   },
   {
-    id: 'maze', no: '03', title: bi('把城市的规则，写进一座虚拟迷宫', 'Turning spatial rules into a virtual maze'),
+    id: 'maze', no: '04', title: bi('把城市的规则，写进一座虚拟迷宫', 'Turning spatial rules into a virtual maze'),
     original: bi('Healing Maze · 疗愈迷宫', 'Healing Maze'),
     type: bi('生成式设计 · 游戏概念', 'Generative design · Game concept'), location: bi('虚拟世界', 'Digital world'),
     role: bi('小组课程项目 · 2024.04–06', 'Team academic project · Apr–Jun 2024'), cover: 13, pages: [13,14,15,16,17,18], skills: ['experiment','strategy','communication'],
@@ -53,7 +76,7 @@ export const projects = [
     outcome: bi('形成规则迭代、空间生成与游戏叙事概念，支持创新、系统拆解和跨领域迁移的表述。未提供可运行游戏、算法源码或用户测试，不据此声称游戏开发或算法研发能力。', 'Rule iterations, spatial generation and a game narrative concept support creative experimentation, systems thinking and cross-domain transfer. A playable build, algorithm source and user testing are not provided, so game engineering or original algorithm research is not claimed.')
   },
   {
-    id: 'railway', no: '04', title: bi('让场地的资源，形成新的连接', 'Connecting overlooked resources into a new place'),
+    id: 'railway', no: '05', title: bi('让场地的资源，形成新的连接', 'Connecting overlooked resources into a new place'),
     original: bi('环铁艺术家自给型物流社区', 'Huantie artists’ self-sufficient logistics community'),
     type: bi('城市设计 · 资源整合', 'Urban design · Resource integration'), location: bi('中国 · 北京环铁', 'Huantie, Beijing'),
     role: bi('独立课程项目', 'Individual academic project'), cover: 2, pages: [2,3,4,5,6], skills: ['insight','strategy','communication'],
@@ -69,8 +92,8 @@ export const projects = [
   }
 ];
 export const profiles = {
-  general: { label: bi('综合作品集', 'Selected portfolio'), title: bi('理解人与场所，\n让洞察成为体验。', 'Understand people & place.\nTurn insight into experience.'), intro: bi('我是陆雨甜。以城市与空间设计为起点，关注研究、文化策划与体验设计；把复杂的场地条件和人的需求，转化为有逻辑、有温度的方案。', 'I’m Yutian Lu. With a foundation in urban and spatial design, I explore research, cultural strategy and experience design—turning complex contexts and people’s needs into thoughtful proposals.'), priority: ['insight','people','strategy','experiment','communication'], order: ['coking','hutong','maze','railway'] },
-  culture: { label: bi('文旅与文化策划', 'Culture & tourism'), title: bi('发现文化的价值，\n设计人与场所的相遇。', 'Discover cultural value.\nCreate encounters with place.'), intro: bi('从工业遗存到历史街区，我关注文化资源如何被理解、被体验。通过场地研究、人群需求分析与触点设计，探索连接文化、社区与游客的策划方案。', 'From industrial heritage to historic streets, I explore how cultural resources are understood and experienced through site research, stakeholder needs and visitor touchpoints.'), priority: ['strategy','people','insight','communication','experiment'], order: ['coking','hutong','railway','maze'] },
-  experience: { label: bi('用户研究与体验', 'Research & experience'), title: bi('从人的行为出发，\n找到体验的下一步。', 'Start with people.\nFind the next step in experience.'), intro: bi('通过实地观察、访谈与路线分析，理解行为背后的需求；将发现转化为功能、路径和服务触点，探索更易进入、更愿停留的体验。', 'I use field observation, interviews and route analysis to understand needs, then translate findings into functions, journeys and service touchpoints.'), priority: ['people','insight','strategy','communication','experiment'], order: ['hutong','coking','maze','railway'] },
-  creative: { label: bi('数字创意与创新', 'Digital & creative'), title: bi('在空间与规则之间，\n探索体验的新可能。', 'Between space and rules,\nexplore new experiences.'), intro: bi('把城市设计中的空间思维迁移到虚拟场景，结合模块、生成规则与叙事，探索从创意构想到规则迭代的设计过程。', 'I transfer spatial thinking into virtual worlds, combining modules, generative rules and narrative to explore a design process from concept to iteration.'), priority: ['experiment','strategy','communication','insight','people'], order: ['maze','railway','hutong','coking'] }
+  general: { label: bi('综合作品集', 'Selected portfolio'), title: bi('理解人与场所，\n让洞察成为体验。', 'Understand people & place.\nTurn insight into experience.'), intro: bi('我是陆雨甜。以城市与空间设计为起点，关注研究、文化策划与体验设计；把复杂的场地条件和人的需求，转化为有逻辑、有温度的方案。', 'I’m Yutian Lu. With a foundation in urban and spatial design, I explore research, cultural strategy and experience design—turning complex contexts and people’s needs into thoughtful proposals.'), priority: ['insight','people','strategy','experiment','communication'], order: ['transit','hutong','coking','maze','railway'] },
+  culture: { label: bi('文旅与文化策划', 'Culture & tourism'), title: bi('发现文化的价值，\n设计人与场所的相遇。', 'Discover cultural value.\nCreate encounters with place.'), intro: bi('从工业遗存到历史街区，我关注文化资源如何被理解、被体验。通过场地研究、人群需求分析与触点设计，探索连接文化、社区与游客的策划方案。', 'From industrial heritage to historic streets, I explore how cultural resources are understood and experienced through site research, stakeholder needs and visitor touchpoints.'), priority: ['strategy','people','insight','communication','experiment'], order: ['hutong','transit','coking','railway','maze'] },
+  experience: { label: bi('用户研究与体验', 'Research & experience'), title: bi('从人的行为出发，\n找到体验的下一步。', 'Start with people.\nFind the next step in experience.'), intro: bi('通过实地观察、访谈与路线分析，理解行为背后的需求；将发现转化为功能、路径和服务触点，探索更易进入、更愿停留的体验。', 'I use field observation, interviews and route analysis to understand needs, then translate findings into functions, journeys and service touchpoints.'), priority: ['people','insight','strategy','communication','experiment'], order: ['transit','hutong','coking','maze','railway'] },
+  creative: { label: bi('数字创意与创新', 'Digital & creative'), title: bi('在空间与规则之间，\n探索体验的新可能。', 'Between space and rules,\nexplore new experiences.'), intro: bi('把城市设计中的空间思维迁移到虚拟场景，结合模块、生成规则与叙事，探索从创意构想到规则迭代的设计过程。', 'I transfer spatial thinking into virtual worlds, combining modules, generative rules and narrative to explore a design process from concept to iteration.'), priority: ['experiment','strategy','communication','insight','people'], order: ['maze','transit','railway','hutong','coking'] }
 };
