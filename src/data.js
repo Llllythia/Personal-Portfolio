@@ -9,9 +9,9 @@ export const skills = [
 export const projects = [
   {
     id: 'transit', no: '01', title: bi('让换乘，成为可停留的城市体验', 'Making transit a place to pause, connect and stay'),
-    original: bi('The Intersection · 东涌综合交通枢纽', 'The Intersection · Tung Chung integrated transit hub'),
+    original: bi('The Intersection · 东涌综合交通枢纽 · Smart TOD Design', 'The Intersection · Tung Chung integrated transit hub · Smart TOD Design'),
     type: bi('综合策划 · 交通与体验设计', 'Integrated strategy · Transit experience'), location: bi('中国 · 香港东涌', 'Tung Chung, Hong Kong'),
-    role: bi('小组课程项目 · Studio 2', 'Team academic project · Studio 2'),
+    role: null,
     cover: 'studio2', pages: ['studio2-01','studio2-02','studio2-03','studio2-04','studio2-05','studio2-06'],
     sourcePdf: 'Studio2-The-Intersection.pdf', sourcePage: 1,
     skills: ['insight','people','strategy','communication'],
