@@ -21,7 +21,7 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Install Chromium for packaging and browser checks
         run: npx playwright-core install --with-deps chromium
-      - name: Build, verify and package
+      - name: Build and verify
         run: |
           export CHROMIUM_PATH="$(node --input-type=module -e "import {chromium} from 'playwright-core'; process.stdout.write(chromium.executablePath())")"
           npm run release

@@ -4,7 +4,7 @@ import { mkdir, writeFile, copyFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const port=4179;
-const server=spawn('node',['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port',String(port),'--strictPort'],{stdio:'pipe'});
+const server=spawn('node',['node_modules/vite/bin/vite.js','--host','127.0.0.1','--port',String(port),'--strictPort'],{stdio:'pipe'});
 let browser;
 try {
   for(let i=0;i<80;i++) {
@@ -20,11 +20,11 @@ try {
   await page.locator('#export').click();
   const download=await pending;
   await mkdir('.local/offline-package',{recursive:true});
-  await mkdir('dist/downloads',{recursive:true});
+  await mkdir('.local/offline-downloads',{recursive:true});
   await download.saveAs('.local/offline-package/Portfolio.html');
   await writeFile('.local/offline-package/README.txt','陆雨甜 / Yutian Lu · 双语作品集\n\n解压后，用 Chrome、Edge、Safari 或 Firefox 打开 Portfolio.html。无需安装软件或连接网络。支持中英切换、项目图集和投递版编辑。\n\nAfter unzipping, open Portfolio.html in a browser. No installation or network connection is required.\n');
-  const zip=spawnSync('zip',['-j','-q',resolve('dist/downloads/Lu-Yutian-Portfolio.zip'),'.local/offline-package/Portfolio.html','.local/offline-package/README.txt'],{stdio:'inherit'});
+  const zip=spawnSync('zip',['-j','-q',resolve('.local/offline-downloads/Lu-Yutian-Portfolio.zip'),'.local/offline-package/Portfolio.html','.local/offline-package/README.txt'],{stdio:'inherit'});
   if(zip.status!==0)throw Error('Could not create offline archive');
-  await copyFile('.local/offline-package/Portfolio.html','dist/downloads/Portfolio.html');
-  console.log('Packaged standalone HTML and ZIP in dist/downloads/.');
+  await copyFile('.local/offline-package/Portfolio.html','.local/offline-downloads/Portfolio.html');
+  console.log('Packaged owner-only files in ignored .local/offline-downloads/.');
 } finally {await browser?.close();server.kill('SIGTERM');}

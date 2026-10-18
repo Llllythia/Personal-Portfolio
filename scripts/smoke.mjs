@@ -6,6 +6,7 @@ import { resolve } from 'node:path';
 
 const port = 4178;
 const server = spawn('node', ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', String(port), '--strictPort'], { stdio: 'pipe' });
+const editorServer = spawn('node', ['node_modules/vite/bin/vite.js', '--host', '127.0.0.1', '--port', '4181', '--strictPort'], { stdio: 'pipe' });
 let browser;
 const errors = [];
 try {
@@ -14,6 +15,11 @@ try {
     if(i===59)throw Error('Preview did not become ready');
     await new Promise(r=>setTimeout(r,150));
   }
+  for(let i=0;i<60;i++) {
+    try { if((await fetch('http://127.0.0.1:4181')).ok)break; } catch {}
+    if(i===59)throw Error('Local editor did not start');
+    await new Promise(r=>setTimeout(r,100));
+  }
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium', headless:true, args:['--no-sandbox'] });
   const context = await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});
   const page = await context.newPage();
@@ -21,6 +27,8 @@ try {
   page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
   await page.goto(`http://127.0.0.1:${port}`);
   assert.equal(await page.locator('.project-card').count(),5);
+  assert.equal(await page.locator('#customize').count(),0);
+  assert.equal(await page.locator('a[download]').count(),0);
   assert.match(await page.locator('h1').innerText(),/理解人与场所/);
   assert.equal(await page.locator('[data-project]').first().getAttribute('data-project'),'transit');
   assert.match(await page.locator('.section-side').innerText(),/5 个项目/);
@@ -41,7 +49,7 @@ try {
     if(id==='transit') {
       assert.equal(await page.locator('.case-highlight').count(),3);
       assert.match(await page.locator('#gallery-count').innerText(),/1 \/ 6 · PDF 1/);
-      assert.match(await page.locator('#case-dialog a.text-link').getAttribute('href'),/Studio2-The-Intersection.pdf#page=1/);
+      assert.equal(await page.locator('#case-dialog a[download], #case-dialog a[href*=".pdf"]').count(),0);
       await page.locator('[data-page="5"]').click();
       assert.match(await page.locator('#gallery-count').innerText(),/6 \/ 6 · PDF 6/);
       await page.locator('[data-highlight="1"]').click();
@@ -57,6 +65,7 @@ try {
   assert.match(await page.locator('#case-dialog').innerText(),/12 tourists/);
   await page.keyboard.press('Escape');
   await page.locator('#language').click();
+  await page.goto('http://127.0.0.1:4181/');
   await page.locator('#customize').click();
   await page.locator('#jd').fill('文旅文化资源策划，用户访谈研究、创新学习、商业测算');
   await page.locator('#analyze').click();
@@ -106,11 +115,6 @@ try {
   await exportedPage.locator('[data-highlight="2"]').click();
   await exportedPage.locator('#image-dialog img').evaluate(img=>img.decode());
   await exportedPage.keyboard.press('Escape');
-  const pdfDownloadPending=exportedPage.waitForEvent('download');
-  await exportedPage.locator('#case-dialog a[download]').click();
-  const pdfDownload=await pdfDownloadPending;
-  assert.equal(pdfDownload.suggestedFilename(),'Studio2-The-Intersection.pdf');
-  assert.equal(await pdfDownload.failure(),null);
   await exportedPage.keyboard.press('Escape');
   // Re-export from the standalone version also needs to work.
   await exportedPage.locator('#customize').click();
@@ -137,14 +141,12 @@ try {
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),`Overflow at ${width}/${lang}`);
     await page.screenshot({path:`test-results/${width}-${lang}.png`,fullPage:true});
   }
-  const pdf=await fetch(`http://127.0.0.1:${port}/assets/Project-Boards.pdf`);
-  assert.equal(pdf.status,200);
-  assert.ok((await pdf.arrayBuffer()).byteLength>1000000);
-  const studioPdf=await fetch(`http://127.0.0.1:${port}/assets/Studio2-The-Intersection.pdf`);
-  assert.equal(studioPdf.status,200);
-  assert.equal((await studioPdf.arrayBuffer()).byteLength,5714805);
+  for(const path of ['/assets/Project-Boards.pdf','/assets/Studio2-The-Intersection.pdf','/downloads/Lu-Yutian-Portfolio.zip','/downloads/Portfolio.html']) {
+    const response=await fetch(`http://127.0.0.1:${port}${path}`);
+    assert.equal(response.status,404,`Public download must be removed: ${path}`);
+  }
   assert.deepEqual(errors,[]);
-  console.log('PASS: bilingual pages, 5 cases, capability filters, galleries, JD matching, validation, custom copy/order, HTML escaping, offline export/re-export, preset URLs, PDF and 6 responsive layouts.');
+  console.log('PASS: bilingual pages, 5 cases, capability filters, galleries, JD matching, validation, custom copy/order, HTML escaping, offline export/re-export, preset URLs, public download removal and 6 responsive layouts.');
 } finally {
-  await browser?.close();server.kill('SIGTERM');
+  await browser?.close();server.kill('SIGTERM');editorServer.kill('SIGTERM');
 }

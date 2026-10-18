@@ -14,8 +14,8 @@
 
 
 
-.board-downloads{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}.case-highlights{margin-top:36px}.case-highlight{background:#f7f7f7;padding:22px;margin-top:20px}.case-highlight figcaption p{margin:10px 0 18px}.case-highlight button{display:block;position:relative;width:100%;padding:0;background:white}.case-highlight button img{width:100%;height:auto;max-height:450px;object-fit:contain}.case-highlight button span{position:absolute;bottom:12px;right:12px;background:var(--paper);padding:8px 12px;font-size:10px;border-radius:3px}.case-highlight small{display:block;font-size:10px;color:var(--muted);margin-top:12px;line-height:1.7}
-@media(max-width:700px){.case-highlight{padding:14px}.case-highlight button span{bottom:8px;right:8px;font-size:9px}.board-downloads{gap:18px}}
+.case-highlights{margin-top:36px}.case-highlight{background:#f7f7f7;padding:22px;margin-top:20px}.case-highlight figcaption p{margin:10px 0 18px}.case-highlight button{display:block;position:relative;width:100%;padding:0;background:white}.case-highlight button img{width:100%;height:auto;max-height:450px;object-fit:contain}.case-highlight button span{position:absolute;bottom:12px;right:12px;background:var(--paper);padding:8px 12px;font-size:10px;border-radius:3px}.case-highlight small{display:block;font-size:10px;color:var(--muted);margin-top:12px;line-height:1.7}
+@media(max-width:700px){.case-highlight{padding:14px}.case-highlight button span{bottom:8px;right:8px;font-size:9px}}
 
 .case-highlight-journey{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);column-gap:28px;row-gap:14px;align-items:start}.case-highlight-journey>button{grid-column:1;grid-row:1}.case-highlight-journey>button img{max-height:none;object-fit:contain}.case-highlight-journey>figcaption{grid-column:2;grid-row:1;padding:8px 0}.case-highlight-journey>small{grid-column:1 / -1;grid-row:2;margin-top:0}
 @media(max-width:700px){.case-highlight-journey{grid-template-columns:minmax(0,1fr);gap:14px}.case-highlight-journey>figcaption{grid-column:1;grid-row:1;padding:0}.case-highlight-journey>button{grid-column:1;grid-row:2}.case-highlight-journey>small{grid-row:3}}

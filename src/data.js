@@ -13,7 +13,6 @@ export const projects = [
     type: bi('综合策划 · 交通与体验设计', 'Integrated strategy · Transit experience'), location: bi('中国 · 香港东涌', 'Tung Chung, Hong Kong'),
     role: null,
     cover: 'studio2', pages: ['studio2-01','studio2-02','studio2-03','studio2-04','studio2-05','studio2-06'],
-    sourcePdf: 'Studio2-The-Intersection.pdf', sourcePage: 1,
     skills: ['insight','people','strategy','communication'],
     background: bi('东涌的轨道、巴士与缆车站点相邻，但步行联系、换乘体验与周边空间仍存在断点。团队结合区域交通与产业背景，探索如何将交通枢纽与办公、住宿、商业及公共活动整合，让场地同时服务短时换乘与长期生活。', 'Rail, bus and cable-car stations sit close together in Tung Chung, yet pedestrian links, transfers and surrounding spaces remain fragmented. Drawing on the regional transport and industry context, the team explores a hub that integrates mobility, work, accommodation, retail and public life for both brief transfers and longer stays.'),
     question: bi('当人们停留一小时、几天或更久，同一个枢纽如何回应不同的需要？', 'How can one hub respond to people staying for an hour, a few days or much longer?'),

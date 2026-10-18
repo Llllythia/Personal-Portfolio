@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node scripts/smoke.mjs",
-    "release": "npm run build && node scripts/package-offline.mjs"
+    "release": "npm run build",
+    "package:local": "node scripts/package-offline.mjs"
   },
   "devDependencies": {
     "vite": "^7.3.0",
