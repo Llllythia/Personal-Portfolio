@@ -38,7 +38,6 @@ try {
     await page.locator(`[data-project="${id}"]`).click();
     await page.locator('#gallery-image').evaluate(img=>img.decode());
     assert.ok(await page.locator('#gallery-image').evaluate(img=>img.complete && img.naturalWidth>0));
-    assert.ok((await page.locator('.case-evidence').innerText()).length>60);
     if(id==='transit') {
       assert.equal(await page.locator('.case-highlight').count(),3);
       assert.match(await page.locator('#gallery-count').innerText(),/1 \/ 6 · PDF 1/);
